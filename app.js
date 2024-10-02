@@ -1,14 +1,7 @@
 const express = require('express');
 const { join } = require('path')
 
-// const openningRouter = require('./server/router/openningRouter')
-// const signupRouter = require('./server/router/signupRouter');
-// const loginRouter = require('./server/router/loginRouter');
-// const mainPageRouter = require('./server/router/mainpageRouter');
-// const movieDetailRouter = require('./server/router/moviedetailRouter');
-// const bookingPageRouter = require('./server/router/bookingpageRouter');
-// const orderSummaryRouter = require('./server/router/ordersummaryRouter');
-// const ticketInfoRouter = require('./server/router/ticketinfoRouter');
+const openningRouter = require('./server/router/openningRouter')
 
 const app = express();
 
@@ -19,7 +12,12 @@ app.use('/storage', express.static(join(__dirname, process.env.EXPRESS_STATIC, '
 
 
 
-// app.use("/", (req, res, next)=>{
+app.use("/", (req, res, next)=>{
+    req.__dirname = __dirname;
+    next()
+}, openningRouter);
+
+// app.use("/encript", (req, res, next)=>{
 //     req.__dirname = __dirname;
 //     next()
 // }, openningRouter);
@@ -29,22 +27,17 @@ app.use('/storage', express.static(join(__dirname, process.env.EXPRESS_STATIC, '
 
 
 
+app.use((req, res)=>{
+    res.status(404).json({message: "The endpoint is not available"});
+})
+
+let config = {
+    port: process.env.EXPRESS_PORT,
+    host: process.env.EXPRESS_HOST_NAME
+}
+
+app.listen(config, ()=>{
+    console.log(`Server running at ${process.env.EXPRESS_PROTOCOL}${config.host}:${config.port}`);
+});
 
 
-// app.use((req, res)=>{
-//     res.status(404).json({message: "The endpoint is not available"});
-// })
-
-// let config = {
-//     port: process.env.EXPRESS_PORT,
-//     host: process.env.EXPRESS_HOST_NAME
-// }
-
-// app.listen(config, ()=>{
-//     console.log(`Server running at ${process.env.EXPRESS_PROTOCOL}${config.host}:${config.port}`);
-// });
-
-
-
-// </body>
-// </html>
