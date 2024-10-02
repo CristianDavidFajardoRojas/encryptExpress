@@ -1,0 +1,58 @@
+:root{
+    --bg-prymary: #0A3871;
+    --bg-secondary: #D8DFE8;
+    --bg-tertiary: #F3F5FC;
+    --bg-quarter: #FFF;
+    --color-prymary: #fff;
+    --color-secondary: #0A3871;
+    --color-tertiary: #495057;
+    --bg-button-prymary: #0A3871;
+    --bg-button-secondary: #D8DFE8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {
+    background-color: var(--bg-tertiary);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.Add_Text {
+    height: 100%;
+    background-color: red;
+}
+
+.input_text {
+    
+    color: var(--color-secondary);
+    text-align: start;
+    padding: 30px;
+    padding-left: 100px;
+    height: 60%;
+    width: 100%;
+    border: 1px solid blue;
+    border-radius: 10px;
+    font-size: 2rem;
+}
+
+.div_buttons {
+    background-color: green;
+    padding: 100px;
+    display: flex;
+    gap: 30px;
+}
+
+.div_buttons button {
+    width: 40%;
+    padding: 20px;
+    border: none;
+}
