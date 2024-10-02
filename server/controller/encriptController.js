@@ -1,6 +1,10 @@
+const encriptModel = require('../model/encriptModel');
+
 exports.encriptText = async (req, res) => {
     try {
-        console.log(req.body)
+        const encriptModelClass = new encriptModel()
+
+        let resEncript = await encriptModelClass.encriptText(req.body.message);
         // const movie = new Movie(req.data);
         
         // let resMovie = await movie.getMovieById(req.params.id);

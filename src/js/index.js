@@ -8,11 +8,11 @@ let infoIngresada
     })
 
 encriptar_button.addEventListener('click', async()=> {
-    alert(JSON.stringify({message: infoIngresada}))
     let peticion = await fetch(`${location.origin}/encript/v1`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({message: infoIngresada}) });
 
     let res = await peticion.json();
+    console.log(res)
 })
