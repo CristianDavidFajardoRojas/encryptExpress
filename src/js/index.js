@@ -1,6 +1,8 @@
 let input_text = document.querySelector(".input_text");
 let encriptar_button = document.querySelector("#encriptar_button");
+let desencriptar_button = document.querySelector("#desencriptar_button");
 let section_derecha = document.querySelector("#section_derecha");
+
 
 let infoIngresada
 
@@ -22,7 +24,7 @@ encriptar_button.addEventListener('click', async()=> {
     
     section_derecha.className = "Yes_text"
     section_derecha.innerHTML = /*html*/`<p>${res.data}</p>`;
-}else {
+}else{
     section_derecha.className = "No_text"
     section_derecha.innerHTML = /*html*/`
         <img src="../storage/img/Muñeco.png">
@@ -32,4 +34,25 @@ encriptar_button.addEventListener('click', async()=> {
 }
 })
 
- 
+
+
+desencriptar_button.addEventListener('click', async()=> {
+    if(infoIngresada != ''){
+    let peticion2 = await fetch(`${location.origin}/desencript/v1`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({message: infoIngresada}) });
+
+    let res2 = await peticion2.json();
+    
+    section_derecha.className = "Yes_text"
+    section_derecha.innerHTML = /*html*/`<p>${res2.data}</p>`;
+}else{
+    section_derecha.className = "No_text"
+    section_derecha.innerHTML = /*html*/`
+        <img src="../storage/img/Muñeco.png">
+        <h3>Ningún mensaje fue encontrado</h3>
+        <p>Ingresa el texto que desees encriptar o desencriptar</p>
+    `;
+}
+})

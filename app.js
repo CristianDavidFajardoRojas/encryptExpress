@@ -3,6 +3,8 @@ const { join } = require('path')
 
 const openningRouter = require('./server/router/openningRouter')
 const encriptRouter = require('./server/router/encriptRouter')
+const desencriptRouter = require('./server/router/desencriptRouter')
+
 
 const app = express();
 
@@ -22,6 +24,11 @@ app.use("/encript", (req, res, next)=>{
     req.__dirname = __dirname;
     next()
 }, encriptRouter);
+
+app.use("/desencript", (req, res, next)=>{
+    req.__dirname = __dirname;
+    next()
+}, desencriptRouter);
 
 
 
