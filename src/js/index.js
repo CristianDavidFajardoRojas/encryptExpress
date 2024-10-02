@@ -23,7 +23,8 @@ encriptar_button.addEventListener('click', async()=> {
     let res = await peticion.json();
     
     section_derecha.className = "Yes_text"
-    section_derecha.innerHTML = /*html*/`<p>${res.data}</p>`;
+    section_derecha.innerHTML = /*html*/`<p id="texto_modificado">${res.data}</p><button class="copy_button">Copiar</button>`;
+    Copiar_texto()
 }else{
     section_derecha.className = "No_text"
     section_derecha.innerHTML = /*html*/`
@@ -46,7 +47,8 @@ desencriptar_button.addEventListener('click', async()=> {
     let res2 = await peticion2.json();
     
     section_derecha.className = "Yes_text"
-    section_derecha.innerHTML = /*html*/`<p>${res2.data}</p>`;
+    section_derecha.innerHTML = /*html*/`<p id="texto_modificado">${res2.data}</p><button class="copy_button">Copiar</button>`;
+    Copiar_texto()
 }else{
     section_derecha.className = "No_text"
     section_derecha.innerHTML = /*html*/`
@@ -56,3 +58,15 @@ desencriptar_button.addEventListener('click', async()=> {
     `;
 }
 })
+
+
+const Copiar_texto = () => {
+    let copy_button = document.querySelector(".copy_button");
+
+    copy_button.addEventListener('click', function() {
+                    let texto = document.getElementById('texto_modificado');
+            
+                    alert(`Texto copiado: ${texto.innerHTML}`);
+
+                });
+}

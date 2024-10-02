@@ -33,12 +33,10 @@ module.exports = class encriptText{
 
     async desencriptTextFunc(texto){
         try{
-            console.log("hola mundoooooooooooooooooooooo")
 
             let listaTexto = texto.split('');
             let contraEncriptadaLista = [];
             for( let i = 0; i < listaTexto.length; i-=-1 ){
-                console.log(listaTexto[i], listaTexto[i+1], listaTexto[i+2],listaTexto[i+3],listaTexto[i+4])
                 if(listaTexto[i] === "e" && listaTexto[i+1] === "n" && listaTexto[i+2] === "t" && listaTexto[i+3] === "e" && listaTexto[i+4] === "r" ){
                     contraEncriptadaLista.push("e")
                     i = i+4
@@ -59,9 +57,6 @@ module.exports = class encriptText{
                     contraEncriptadaLista.push(listaTexto[i])
                 }
             };
-            console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-            console.log(contraEncriptadaLista.join(''))
-
             return {status: 201, message: "Contraseña Desencriptada Exitosamente", data: contraEncriptadaLista.join('')}
         }catch(err){
             throw new Error(JSON.stringify({status: 500, message: "Error al Desencriptar", err: err}));

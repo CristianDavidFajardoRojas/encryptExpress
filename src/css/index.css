@@ -122,6 +122,18 @@ body {
     background-color: red;
 }
 
+.copy_button {
+    font-size: .6em;
+    width: 35%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    border: 1px solid var(--bg-button-prymary);
+    background-color: var(--bg-quarter);
+    color: var(--bg-button-prymary);
+}
+
 
 
 
@@ -243,5 +255,17 @@ body {
         color: rgb(90, 90, 90);
     }
 
+
+    .copy_button {
+        font-size: .6em;
+        width: 35%;
+        padding: 10px;
+        border: none;
+        border-radius: 20px;
+        color: white;
+        border: 1px solid var(--bg-button-prymary);
+        background-color: var(--bg-quarter);
+        color: var(--bg-button-prymary);
+    }
 
 }
